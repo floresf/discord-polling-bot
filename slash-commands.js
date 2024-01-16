@@ -1,5 +1,5 @@
-import 'dotenv/config'
-import { InstallGlobalCommands } from './helpers/utils';
+require('dotenv').config();
+const { InstallGlobalCommands } = require('./helpers/utils');
 
 
 // Simple hello world command

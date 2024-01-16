@@ -1,8 +1,8 @@
-import 'dotenv/config'
-import axios from 'axios'
-import crypto from 'crypto'
+require('dotenv').config();
+const axios = require('axios');
+const crypto = require('crypto');
 
-export function VerifyDiscordRequest(req, res, buf, encoding) {
+function VerifyDiscordRequest(req, res, buf, encoding) {
     // Get headers from interaction
     const signature = req.get('X-Signature-Ed25519');
     const timestamp = req.get('X-Signature-Timestamp');
@@ -29,7 +29,7 @@ function VerifySignature(signature, timestamp, body) {
  * @param {string} options - Request options
  * @param {string} options.method - The request method
  */
-export async function DiscordRequest(endpoint, options) {
+async function DiscordRequest(endpoint, options) {
     // Base url for Discord API
     const url = `https://discord.com/api/v10/${endpoint}`;
     // Stringify payload
@@ -46,7 +46,7 @@ export async function DiscordRequest(endpoint, options) {
     console.log('\n\nResponse.data:', response.data);
 }
 
-export async function InstallGlobalCommands(appId, commands) {
+async function InstallGlobalCommands(appId, commands) {
     // API endpoint to overwrite global commands
     const endpoint = `applications/${appId}/commands`;
 
@@ -57,3 +57,9 @@ export async function InstallGlobalCommands(appId, commands) {
         console.error(error);
     }
 }
+
+module.exports = {
+    VerifyDiscordRequest,
+    InstallGlobalCommands,
+    DiscordRequest,
+};
