@@ -13,6 +13,18 @@ app.get('/', (req, res) => {
     res.send('hello world..');
 });
 
+app.post('/interactions', async (req, res) => {
+    console.log('req.body:', req.body);
+
+    res.send({
+        type: 1,
+        data: {
+            content: 'Gotcha...'
+        }
+    });
+
+});
+
 app.listen(port, () => {
     console.log('server is running on port: ' + port);
 });

@@ -4,6 +4,7 @@
   "description": "A Discord app for running a simple poll.",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon app.js",
     "start": "node app.js",
     "register": "node slash-commands.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +17,10 @@
   "dependencies": {
     "axios": "^1.6.5",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "tweetnacl": "^1.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }
