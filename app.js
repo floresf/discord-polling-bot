@@ -15,6 +15,12 @@ app.get('/', (req, res) => {
 
 app.post('/interactions', async (req, res) => {
     console.log('req.body:', req.body);
+    const { type, id, data } = req.body;
+
+    if (type === 1) {
+        // Acknowledge a ping event
+        return res.send({ type: 1 });
+    }
 
     res.send({
         type: 1,
