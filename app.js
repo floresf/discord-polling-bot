@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const { VerifyDiscordRequest } = require('./helpers/utils');
 // Import Discord constants
-const { InteractionType, InteractionResponseType } = require('./helpers/constants');
+const { InteractionType, InteractionResponseType } = require('./constants/index');
 
 // Create express app
 const app = express();
@@ -25,7 +25,7 @@ app.post('/interactions', async (req, res) => {
     }
 
     res.send({
-        type: 1,
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
             content: 'Gotcha...'
         }
