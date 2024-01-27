@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const { VerifyDiscordRequest } = require('./helpers/utils');
+// Import Discord constants
+const { InteractionType, InteractionResponseType } = require('./helpers/constants');
 
 // Create express app
 const app = express();
@@ -17,9 +19,9 @@ app.post('/interactions', async (req, res) => {
     console.log('req.body:', req.body);
     const { type, id, data } = req.body;
 
-    if (type === 1) {
+    if (type === InteractionType.PING) {
         // Acknowledge a ping event
-        return res.send({ type: 1 });
+        return res.send({ type: InteractionResponseType.PONG });
     }
 
     res.send({
