@@ -123,7 +123,9 @@ async function InstallGlobalCommands(appId, commands) {
         // Bulk overwrite Global Application commands: https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-global-application-commands
         await DiscordRequest(endpoint, { method: 'put', body: commands });
     } catch (error) {
-        console.error(error);
+        // console.error(error);
+        console.log('\n\nerror response data:', error.response.data);
+        console.log('error.response.data.errors:', error.response.data.errors['1'].name);
     }
 }
 

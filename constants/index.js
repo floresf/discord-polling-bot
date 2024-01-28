@@ -1,5 +1,10 @@
 
 module.exports = {
+    ApplicationCommandType: {
+        CHAT_INPUT: 1, // Slash commands; a text-based command that shows up when a user types / in chat
+        USER: 2, // A UI-based command that shows up when you right click or tap on a user
+        MESSAGE: 3 // A UI-based command that shows up when you right click or tap on a message
+    },
     InteractionType: {
         PING: 1,
         APPLICATION_COMMAND: 2,
@@ -16,5 +21,15 @@ module.exports = {
         APPLICATION_COMMAND_AUTOCOMPLETE_RESULT: 8, // Respond to an autocomplete interaction with suggested choices
         MODAL: 9, // Respond to an interaction with a popup modal
         PREMIUM_REQUIRED: 10 // Respond to an interaction with an upgrade button, only available for apps with monetization enabled
+    },
+    MessageComponentType: {
+        ACTION_ROW: 1,
+        BUTTON: 2,
+        STRING_SELECT: 3,
+        TEXT_INPUT: 4,
+        USER_SELECT: 5,
+        ROLE_SELECT: 6,
+        MENTIONABLE_SELECT: 7,
+        CHANNEL_SELECT: 8
     }
 };
